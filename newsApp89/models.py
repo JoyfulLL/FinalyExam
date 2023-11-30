@@ -6,8 +6,8 @@ import django.utils.timezone as timezone
 
 class MyNew(models.Model):
     NEWS_CHOICES = (
-        ('企业要闻', '企业要闻'),
-        ('行业新闻', '行业新闻'),
+        ('新番动态', '新番动态'),
+        ('最新剧场', '最新剧场'),
         ('通知公告', '通知公告'),
     )
 
@@ -25,7 +25,7 @@ class MyNew(models.Model):
     newType = models.CharField(
         choices=NEWS_CHOICES,
         max_length=50,
-        verbose_name='新闻类型'
+        verbose_name='番剧类型'
     )
 
     publishDate = models.DateTimeField(
@@ -49,5 +49,5 @@ class MyNew(models.Model):
 
     class Meta:
         ordering = ['-publishDate']
-        verbose_name = '新闻'
+        verbose_name = '番剧动态'
         verbose_name_plural = verbose_name

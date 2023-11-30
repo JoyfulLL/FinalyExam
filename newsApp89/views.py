@@ -9,9 +9,9 @@ def news(request, newName):
     # 解析请求的新闻类型
     submenu = newName
     if newName == 'company':
-        newName = '企业要闻'
+        newName = '新番动态'
     elif newName == 'industry':
-        newName = '行业新闻'
+        newName = '最新剧场'
     else:
         newName = '通知公告'
     # 从数据库获取、过滤和排序数据

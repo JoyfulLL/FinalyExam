@@ -12,18 +12,20 @@
         <div class="row row-3">
             <!-- 侧边导航栏 -->
             <div class="col-md-3">
-                <div class="model-title">新闻动态</div>
+                <div class="model-title">新番动态</div>
                 <div class="model-list">
                     <ul class="list-group">
                         <li class="list-group-item" id="company">
-                            <a href="{% url 'newsApp89:news' 'company' %}">企业要闻</a>
+                            <a href="{% url 'newsApp89:news' 'company' %}">新番动态</a>
                         </li>
                         <li class="list-group-item" id="industry">
-                            <a href="{% url 'newsApp89:news' 'industry' %}">行业新闻</a>
+                            <a href="{% url 'newsApp89:news' 'industry' %}">最新剧场</a>
                         </li>
+{% comment %}
                         <li class="list-group-item" id="notice">
                             <a href="{% url 'newsApp89:news' 'notice' %}">通知公告</a>
                         </li>
+			{% endcomment %}
                     </ul>
                 </div>
             </div>

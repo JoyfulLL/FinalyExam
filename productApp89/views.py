@@ -17,7 +17,7 @@ def products(request, productName):
         productType=productName).order_by('-publishDate')
 
     # 分页
-    p = Paginator(productList, 2)  # 参数2表示希望每页显示多少条数据  #  Paginator帮助管理分页数据
+    p = Paginator(productList, 4)  # 参数2表示希望每页显示多少条数据  #  Paginator帮助管理分页数据
     if p.num_pages <= 1:
         pageData = ''
     else:
