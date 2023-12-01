@@ -94,7 +94,7 @@ def download(request):
         }
     return render(
         request, 'docList.html', {
-            'newName': '资料下载',
+            'newName': '壁纸下载',
             'active_menu': 'service',
             'sub_menu': 'download',
             'docList': docList,

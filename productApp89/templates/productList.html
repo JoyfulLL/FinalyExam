@@ -45,17 +45,17 @@ rel="stylesheet">
         {% for product in productList %}
 
         <div class="row">
-          <div class="col-md-6">
+          <div class="col-md-3">
             {% for img in product.productImgs.all %} {% if forloop.first %}
             <a
               href="{% url 'productApp89:productDetail' product.id %}"
-              class="thumbnail row-4"
+              class="thumbnail row-3"
             >
               <img class="img-responsive model-img" src="{{img.photo.url}}" />
             </a>
             {% endif %} {% endfor %}
           </div>
-          <div class="col-md-6">
+          <div class="col-md-5">
             <h3>{{ product.title|truncatechars:"20" }}</h3>
 
             <p>{{ product.description|truncatechars:"150"|linebreaks }}</p>

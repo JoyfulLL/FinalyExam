@@ -6,43 +6,27 @@
 {% endblock %}
 
 {% block content %}
-    <link href="{% static 'css/news.css' %}" rel="stylesheet">
-    <!-- 广告横幅 -->
-    <div class="container-fluid">
-        <div class="row">
-            <img class="img-responsive model-img" src="{% static 'img/service.jpg' %}">
-        </div>
-    </div>
+
+ <link href="{% static 'css/service.css' %}" rel="stylesheet">
     <!-- 主体内容 -->
     <div class="container">
         <div class="row row-3">
-            <!-- 侧边导航栏 -->
-            <div class="col-md-3">
-                <div class="model-title">
-                    服务支持
-                </div>
-                <div class="model-list">
-                    <ul class="list-group">
-                        <li class="list-group-item" id='download'>
-                            <a href="{% url 'serviceApp89:download' %}">资料下载</a>
-                        </li>
-                        <li class="list-group-item" id='platform'>
-                            <a href="{% url 'serviceApp89:platform' %}">人工智能开放平台</a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-            <!-- 说明文字和图片 -->
-            <div class="col-md-9">
+            
                 <div class="model-details-title">
                     {{ newName }}
                 </div>
-                <div class="model-details">
+                <div class="box">
                     {% for doc in docList %}
-                        <div class="news-model">
-                            <img src="{% static 'img/newsicon.gif' %}">
+			<div>
+			    {% for img in doc.docImgs.all %}
+           			 {% if forloop.first %}
+           			 <a href="#">
+                			<img class="img-responsive model-img" src="{{img.photo.url}}">
+           			 </a>
+           			 {% endif %}
+       			     {% endfor %}
                             <a href="{% url 'serviceApp89:getDoc' doc.id %}"><b>{{ doc.title }}</b></a>
-                            <span>【{{ doc.publishDate|date:"Y-m-d" }}】</span>
+			<!--   <span>【{{ doc.publishDate|date:"Y-m-d" }}】</span>  -->
                         </div>
                     {% endfor %}
 
@@ -76,7 +60,31 @@
                         </div>
                     {% endif %}
                 </div>
-            </div>
+            
         </div>
     </div>
+
+<script>
+	var box = document.querySelector('.img'); // 获取元素
+
+box.addEventListener('mouseenter', function() {
+  box.style.border = '2px solid blue'; // 设置高亮边框样式
+});
+
+box.addEventListener('mouseleave', function() {
+  box.style.border = '1px solid #ccc'; // 恢复默认边框样式
+});
+
+$(function(){
+	//一段正则，匹配所有_min.的图片src属性
+	var test = /_min\./
+	//遍历所有的图片节点
+	$("img").each(function(index,obj){	
+		if(test.test($(this).attr("src"))){
+			var reSrc = $(this).attr("src").replace(test,".");
+			$(this).attr("src",reSrc)
+		}		
+	})
+})
+</script>
 {% endblock %}

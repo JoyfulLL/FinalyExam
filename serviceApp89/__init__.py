@@ -1,7 +1,7 @@
 from os import path
 from django.apps import AppConfig
 
-VERBOSE_APP_NAME = '服务支持'
+VERBOSE_APP_NAME = '壁纸下载'
 
 
 def get_current_app_name(file):
