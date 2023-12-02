@@ -10,7 +10,6 @@ from django.utils import timezone
 from datetime import datetime
 # Create your models here.
 
-
 class Ad(models.Model):
     title = models.CharField(max_length=50, verbose_name='招聘岗位')
     description = models.TextField(verbose_name='岗位要求')
@@ -25,20 +24,9 @@ class Ad(models.Model):
         verbose_name_plural = '招聘广告'
         ordering = ('-publishDate',)
 
-
 class Resume(models.Model):
-    name = models.CharField(max_length=20, verbose_name='姓名')
-    personID = models.CharField(max_length=30, verbose_name='身份证号')
-    sex = models.CharField(max_length=5, default='男', verbose_name='性别')
-    email = models.EmailField(max_length=30, verbose_name='邮箱')
-    birth = models.DateField(max_length=20,
-                             default=datetime.strftime(datetime.now(),
-                                                       "%Y-%m-%d"),
-                             verbose_name='出生日期')
-    edu = models.CharField(max_length=5, default='本科', verbose_name='学历')
-    school = models.CharField(max_length=40, verbose_name='毕业院校')
-    major = models.CharField(max_length=40, verbose_name='专业')
-    position = models.CharField(max_length=40, verbose_name='申请职位')
+    name = models.CharField(max_length=20, verbose_name='姓名',blank=True,
+                                  null=True)
     experience = models.TextField(blank=True,
                                   null=True,
                                   verbose_name='学习或工作经历')
@@ -60,10 +48,9 @@ class Resume(models.Model):
         return self.name
 
     class Meta:
-        verbose_name = '简历'
-        verbose_name_plural = '简历'
+        verbose_name = '创意征集'
+        verbose_name_plural = '创意征集'
         ordering = ('-status', '-publishDate')
-
 
 @receiver(post_init, sender=Resume)
 def before_save_resume(sender, instance, **kwargs):

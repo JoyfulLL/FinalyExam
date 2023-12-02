@@ -1,6 +1,6 @@
 from os import path
 from django.apps import AppConfig
-VERBOSE_APP_NAME = '产品介绍'
+VERBOSE_APP_NAME = '百宝袋'
 
 
 def get_current_app_name(file):

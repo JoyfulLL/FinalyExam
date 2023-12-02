@@ -7,7 +7,7 @@
 
 {% block content %}
 
- <link href="{% static 'css/service.css' %}" rel="stylesheet">
+<link href="{% static 'css/service.css' %}" rel="stylesheet">  
     <!-- 主体内容 -->
     <div class="container">
         <div class="row row-3">
@@ -17,50 +17,64 @@
                 </div>
                 <div class="box">
                     {% for doc in docList %}
-			<div>
+			   <div class=""> 
 			    {% for img in doc.docImgs.all %}
            			 {% if forloop.first %}
-           			 <a href="#">
+				 <a href="#">
                 			<img class="img-responsive model-img" src="{{img.photo.url}}">
            			 </a>
            			 {% endif %}
        			     {% endfor %}
-                            <a href="{% url 'serviceApp89:getDoc' doc.id %}"><b>{{ doc.title }}</b></a>
-			<!--   <span>【{{ doc.publishDate|date:"Y-m-d" }}】</span>  -->
-                        </div>
-                    {% endfor %}
-
-                    {% if pageData %}
-                        <div class="paging">
-                            <ul id="pages" class="pagination">
-                                {% if pageData.first %}
-                                    <li><a href="?page=1">1</a></li>
-                                {% endif %}
-                                {% if pageData.left %}
-                                    {% if pageData.left_has_more %}
-                                        <li><span>...</span></li>
-                                    {% endif %}
-                                    {% for i in pageData.left %}
-                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                    {% endfor %}
-                                {% endif %}
-                                <li class="active"><a href="?page={{ pageData.page }}">{{ pageData.page }}</a></li>
-                                {% if pageData.right %}
-                                    {% for i in pageData.right %}
-                                        <li><a href="?page={{ i }}">{{ i }}</a></li>
-                                    {% endfor %}
-                                    {% if pageData.right_has_more %}
-                                        <li><span>...</span></li>
-                                    {% endif %}
-                                {% endif %}
-                                {% if pageData.last %}
-                                    <li><a href="?page={{ pageData.total_pages }}">{{ pageData.total_pages }}</a></li>
-                                {% endif %}
-                            </ul>
-                        </div>
-                    {% endif %}
-                </div>
-            
+                            <a href="{% url 'serviceApp89:getDoc' doc.id %}"><b class="caption1">{{ doc.title }}</b></a>
+			    <!--    <span>【{{ doc.publishDate|date:"Y-m-d" }}】</span>  -->
+			   </div>
+			   
+                    {% endfor %}   
+              </div>
+	<div>
+	 {% if pageData %}
+        <div class="paging">
+          <ul id="pages" class="pagination pagination-sm pagination-xs">
+            {% if pageData.first %}
+            <li><a href="?page=1">1</a></li>
+            <!---->
+            {% endif %}
+            <!---->
+            {% if pageData.left %}
+            <!---->
+            {% if pageData.left_has_more %}
+            <li><span>...</span></li>
+            {% endif %}
+            <!---->
+            {% for i in pageData.left %}
+            <li><a href="?page={{i}}">{{i}}</a></li>
+            {% endfor %}
+            <!---->
+            {% endif %}
+            <li class="active">
+              <a href="?page={{pageData.page}}">{{pageData.page}}</a>
+            </li>
+            {% if pageData.right %} {% for i in pageData.right %}
+            <li><a href="?page={{i}}">{{i}}</a></li>
+            {% endfor %}
+            <!---->
+            {% if pageData.right_has_more %}
+            <li><span>...</span></li>
+            {% endif %}
+            <!---->
+            {% endif %}
+            <!---->
+            {% if pageData.last %}
+            <li>
+              <a href="?page={{pageData.total_pages}}"
+                >{{pageData.total_pages}}</a
+              >
+            </li>
+            {% endif %}
+          </ul>
+        </div>
+        {% endif %}
+            </div>
         </div>
     </div>
 
