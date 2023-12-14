@@ -49,6 +49,7 @@ INSTALLED_APPS = [
     'productApp89',
     'serviceApp89',
     'scienceApp89',
+    'User',
     'DjangoUeditor',
     'haystack',
     'widget_tweaks',

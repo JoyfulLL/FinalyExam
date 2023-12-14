@@ -22,6 +22,7 @@ urlpatterns = [
     path('serviceApp89/', include('serviceApp89.urls')),
     path('ueditor/', include('DjangoUeditor.urls')),
     path('search/', include('haystack.urls')),
+    path('User/',include('User.urls')),
     re_path(r'^favicon.ico$', RedirectView.as_view(url=r'static/img/favicon.ico')),
     #url(r'^static/(?P<path>.*)$', static.serve, {'document_root': settings.STATIC_ROOT}, name='static'),
 ]

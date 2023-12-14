@@ -9,7 +9,7 @@
 
 <link href="{% static 'css/service.css' %}" rel="stylesheet">  
     <!-- 主体内容 -->
-    <div class="container">
+<div class="container">
         <div class="row row-3">
             
                 <div class="model-details-title">
@@ -31,74 +31,35 @@
 			   
                     {% endfor %}   
               </div>
-	<div>
-	 {% if pageData %}
+      	<div>
+	       
         <div class="paging">
-          <ul id="pages" class="pagination pagination-sm pagination-xs">
-            {% if pageData.first %}
-            <li><a href="?page=1">1</a></li>
-            <!---->
-            {% endif %}
-            <!---->
-            {% if pageData.left %}
-            <!---->
-            {% if pageData.left_has_more %}
-            <li><span>...</span></li>
-            {% endif %}
-            <!---->
-            {% for i in pageData.left %}
-            <li><a href="?page={{i}}">{{i}}</a></li>
-            {% endfor %}
-            <!---->
-            {% endif %}
-            <li class="active">
-              <a href="?page={{pageData.page}}">{{pageData.page}}</a>
-            </li>
-            {% if pageData.right %} {% for i in pageData.right %}
-            <li><a href="?page={{i}}">{{i}}</a></li>
-            {% endfor %}
-            <!---->
-            {% if pageData.right_has_more %}
-            <li><span>...</span></li>
-            {% endif %}
-            <!---->
-            {% endif %}
-            <!---->
-            {% if pageData.last %}
-            <li>
-              <a href="?page={{pageData.total_pages}}"
-                >{{pageData.total_pages}}</a
-              >
-            </li>
-            {% endif %}
-          </ul>
+  <ul id="pages" class="pagination pagination-sm pagination-xs">
+    {% if pageData.first %}
+      <li><a href="?page=1">1</a></li>
+    {% endif %}
+    {% if pageData.left_has_more %}
+      <li><span>...</span></li>
+    {% endif %}
+    {% for i in pageData.left %}
+      <li><a href="?page={{ i }}">{{ i }}</a></li>
+    {% endfor %}
+    <li class="active"><a href="?page={{ pageData.page }}">{{ pageData.page }}</a></li>
+    {% for i in pageData.right %}
+      <li><a href="?page={{ i }}">{{ i }}</a></li>
+    {% endfor %}
+    {% if pageData.right_has_more %}
+      <li><span>...</span></li>
+    {% endif %}
+    {% if pageData.last %}
+      <li><a href="?page={{ pageData.total_pages }}">{{ pageData.total_pages }}</a></li>
+    {% endif %}
+  </ul>
+</div>
+
+        
         </div>
-        {% endif %}
-            </div>
-        </div>
-    </div>
+  </div>
+</div>
 
-<script>
-	var box = document.querySelector('.img'); // 获取元素
-
-box.addEventListener('mouseenter', function() {
-  box.style.border = '2px solid blue'; // 设置高亮边框样式
-});
-
-box.addEventListener('mouseleave', function() {
-  box.style.border = '1px solid #ccc'; // 恢复默认边框样式
-});
-
-$(function(){
-	//一段正则，匹配所有_min.的图片src属性
-	var test = /_min\./
-	//遍历所有的图片节点
-	$("img").each(function(index,obj){	
-		if(test.test($(this).attr("src"))){
-			var reSrc = $(this).attr("src").replace(test,".");
-			$(this).attr("src",reSrc)
-		}		
-	})
-})
-</script>
 {% endblock %}

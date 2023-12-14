@@ -15,14 +15,10 @@ font-size:20px;
   font-size: 28px;
 }
 
-.thumbnail{
-	 height: 200px;
-        width: 250px;
-}
 
 .box {
       display: grid;
-      grid-template-columns: repeat(auto-fill, 200px);
+      grid-template-columns: repeat(auto-fill, 300px);
       grid-gap: 15px;
       justify-content: center;
       text-align: center;
@@ -30,15 +26,18 @@ font-size:20px;
         height: 250px;
         width: 280px;
       }
-      img {
-	 width: 80%;
-	 height: 70%;
-	    
-      }
+     
 }
 
 .caption1{
     color: #0070d2;
     text-align:center;
  }
-
+.model-img {
+    width: 300px; /* 设置图片宽度 */
+    height: 200px; /* 设置图片高度 */
+    object-fit: cover; /* 保持图片比例并填充整个容器 */
+}
+.paging {
+    text-align: center; /* 让其中的内容在水平方向上居中显示 */
+}

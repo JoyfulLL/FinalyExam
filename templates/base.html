@@ -5,7 +5,7 @@
     {% load static %}
     <meta charset="utf-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=EDGE" />
-    <title>多啦之家|{% block title%}{% endblock%}</title>
+    <title>哆啦之家|{% block title%}{% endblock%}</title>
     <link href="{%static 'css/bootstrap.css'%}" rel="stylesheet" />
     <link href="{% static 'css/style.css' %}" rel="stylesheet" />
     <script src="{% static 'js/jquery.min.js' %}"></script>
@@ -70,22 +70,12 @@
             </li>
             <li class="nav-top" id="service">
               <a href="{% url 'serviceApp89:download' %}">壁纸下载</a>
-	      {% comment %}
-              <ul class="dropdown-menu" id="service">
-                <li>
-                  <a href="{% url 'serviceApp89:download' %}">资料下载</a>
-                </li>
-                <li>
-                  <a href="{% url 'serviceApp89:platform' %}"
-                    >人脸识别开放平台</a
-                  >
-                </li>
-              </ul>
-	      {% endcomment %}
             </li>
             <li class="nav-top" id="contact">
               <a href="{% url 'contactApp89:recruit' %}">创意征集</a>
-              
+            </li>
+	    <li class="nav-top" id="">
+              <a href="{% url 'User:login' %}">登录</a>
             </li>
           </ul>
         
