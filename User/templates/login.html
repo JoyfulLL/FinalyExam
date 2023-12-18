@@ -46,6 +46,29 @@
             background-color: #45a049;
         }
     </style>
+    <script>
+        function validateForm() {
+            var username = document.getElementsByName('username')[0].value;
+            var email = document.getElementsByName('email')[0].value;
+            var password = document.getElementsByName('password')[0].value;
+
+            if (username === "") {
+                alert("用户名不能为空");
+                return false;  // 阻止表单提交
+            }
+
+            if (email === "") {
+                alert("邮箱不能为空");
+                return false;  // 阻止表单提交
+            }
+
+            if (password === "") {
+                alert("密码不能为空");
+                return false;  // 阻止表单提交
+            }
+            // 其他验证逻辑
+        }
+    </script>
 </head>
 <body>
     <form action="" method="post">
